@@ -21,10 +21,29 @@ segmented reviews (CSV)
 
 # Segmentation rules
 
-Stars	Comment sentiment	Segment	Intended downstream use
-5	Positive	Promoter	Treated as promoters
-4	Positive	Newsletter only	Newsletter, no follow-up
-3	Neutral / negative	Follow-up	Multiple-choice follow-up
-1–2	Negative	Escalation	Customer service escalation list
-4–5	Negative	Needs review	Stars and comment disagree
-1–2	Positive	Needs review	Stars and comment disagree
+| Stars | Comment sentiment | Segment | Intended downstream use |
+| --- | --- | --- | --- |
+| 5 | Positive | Promoter + newsletter | Treated as promoters, no follow-up |
+| 4 | Positive | Newsletter invitation | Newsletter, no follow-up |
+| 3 | Positive / Neutral / negative | Follow-up | Multiple-choice follow-up |
+| 1-2 | Negative | Escalation | Customer service escalation list |
+| 4-5 | Negative | Needs review | Stars and comment disagree |
+| 1-2 | Positive | Needs review | Stars and comment disagree |
+
+**Notes**
+
+- The "downstream use" column describes the intended purpose of each segment. These actions are not implemented yet; the pipeline only produces the segment labels.
+
+# Project structure
+.
+├── data/
+│   ├── raw/            # original reviews (not committed)
+│   └── processed/      # cleaned and segmented output
+├── src/
+│   ├── cleaning.py
+│   ├── segmentation.py
+│   └── config.py       # thresholds and segment rules
+├── notebooks/          # exploration
+├── tests/
+├── requirements.txt
+└── README.md
