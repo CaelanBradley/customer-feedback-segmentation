@@ -20,6 +20,7 @@ raw reviews (comment + stars)
 segmented reviews (CSV)
 
 # Segmentation rules
+
 Stars	Comment sentiment	Segment	Intended downstream use
 5	Positive	Promoter	Treated as promoters
 4	Positive	Newsletter only	Newsletter, no follow-up
